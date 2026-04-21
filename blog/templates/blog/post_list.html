@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SecLog: Security Research Journal</title>
+        <style>
+            /* Simple terminal-style theme */
+            body { 
+                background-color: #0d0d0d; 
+                color: #22eb22; 
+                font-family: 'Courier New', monospace; 
+                padding: 40px; 
+            }
+            h1 { border-bottom: 2px solid #22eb22; padding-bottom: 10px; }
+            article { 
+                margin-top: 20px; 
+                padding: 15px; 
+                border: 1px solid #333; 
+            }
+            .date { color: #888; font-size: 0.9em; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/" style="color: #22eb22; text-decoration: none;">[ SecLog_v1.0 ]</a></h1>
+        </header>
+
+        <div>
+            {% for post in posts %}
+                <article>
+                    <div class="date">
+                        Logged on: {{ post.published_date }}
+                    </div>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                    <p>-- Analyst: {{ post.author }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </body>
+</html>
